@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+Heure: @TempData["Heure"]
+
+<br />
+<form action="/Home/Index" method="post">
+    <input type="text" name="demo" />
+    <input type="submit" value="Envoyer" />
+</form>
+<br />
+Contenue du forme : @ViewBag.Param
+
+<br />
+<br />
+Protection contre les contres façon
+<br />
+
+<br />
+<form action="/Home/Index2" method="post">
+    @Html.AntiForgeryToken()
+    <input type="text" name="txtDemo" />
+    <input type="submit" value="Envoyer" />
+</form>
+<br />
+Contenue du forme : @ViewBag.AutreParam

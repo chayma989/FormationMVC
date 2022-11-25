@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h3>Html Helper</h3>
+les helpers Razor sont des composants contenant des méthodes qui vont simplifier le rendu du code Html dans la vue.
+
+
+<br />
+<a href="/Home/About?">About Us</a>
+<br />
+@Html.ActionLink("About Us", "About", new { Id = 1, nom = "dawan" })
+
+<br />
+<form action="/Home/Index" method="post">
+    Nom: <input type="text" name="demo" />
+    <input type="submit" value="Envoyer" />
+</form>
+<br />
+@using (Html.BeginForm("Bonjour", "Home"))
+{
+    @Html.Label("nom", "Nom:")
+    <br />
+    @Html.TextBox("nom", null, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("prenom", "Nom:")
+    <br />
+    @Html.TextBox("prenom", null, new { @class = "form-control" })
+    <br />
+
+    @:Poste:
+    @Html.RadioButton("Poste", "Developper", new { id = "Dev" })
+    @Html.Label("Dev", "Developper")
+
+    @Html.RadioButton("Poste", "Consultant", new { id = "Cons" })
+    @Html.Label("Cons", "Consultant")
+
+    <br />
+    @:Formation:
+    @Html.DropDownList("formations")
+    <br />
+    @:Centres:
+    @Html.DropDownList("centres", null, new { size = 4 })
+
+
+    <input type="submit" value="Envoyer" />
+}
+@helper Test()
+{
+    <p>Helper test</p>
+}
+@helper Somme2(int a, int b)
+{
+    var s = a + b;
+    <b>@s</b>
+}
+
+
+<br />
+<h4>Test des Helpers personnalisés</h4>
+
+la somme de 5 et 10 est : @Somme2(5, 10)<br />
+la somme de 5 et 10 est : @MyHelper.Somme(5, 10)<br />
+Heure : @MyHelper.CurrentTime()
+
+

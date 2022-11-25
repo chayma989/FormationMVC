@@ -1,0 +1,44 @@
+﻿@model _8_DemoFormValidation.Models.Employe
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("Index","Home",FormMethod.Post,new {enctypre="multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <legend>Employé</legend>
+        @*@Html.EditorFor(emp=>emp)*@
+        @Html.LabelFor(c => c.UserName)
+        @Html.EditorFor(c => c.UserName)
+        @Html.ValidationMessageFor(c => c.UserName)
+        <br />
+        @Html.LabelFor(c => c.Password)
+        @Html.EditorFor(c => c.Password)
+        @Html.ValidationMessageFor(c => c.Password)
+        <br />
+        @Html.LabelFor(c => c.DateNaissance)
+        @Html.EditorFor(c => c.DateNaissance)
+        @Html.ValidationMessageFor(c => c.DateNaissance)
+        <br />
+        @Html.LabelFor(c => c.Email)
+        @Html.EditorFor(c => c.Email)
+        @Html.ValidationMessageFor(c => c.Email)
+        <br />
+        @Html.LabelFor(c => c.Evaluation)
+        @Html.EditorFor(c => c.Evaluation)
+        @Html.ValidationMessageFor(c => c.Evaluation)
+        <br />
+        @Html.LabelFor(c => c.Commentaire)
+        @Html.EditorFor(c => c.Commentaire)
+        @Html.ValidationMessageFor(c => c.Commentaire)
+        <br />
+        <input type="file" value="photo" />
+        @Html.ValidationMessageFor(c=> c.Photo)
+        <br />
+        <input type="submit" value="Envoyer" />
+        <br/>
+        @ViewBag.ImageNonValide
+
+    </fieldset>
+}

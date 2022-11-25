@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+
+Nom: @ViewBag.Nom<br />
+Prénom: @ViewData["Prenom"]<br />
+Formation: @TempData["Formation"]<br />
+Verssion: @Session["Version"] <br />
+Contact: Nom: @Model.Nom - Prénom: @Model.Prenom 
+
+<br/><br />
+     <form action="/Home/Index" method="post">
+         <input type="text" name="nom" value="" />
+         <input type="submit" value="Envoyer" />
+     </form>
+<br/>
+Contenue du formulaire : @ViewBag.Param

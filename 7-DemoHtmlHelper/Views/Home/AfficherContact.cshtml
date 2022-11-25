@@ -1,0 +1,25 @@
+﻿@model _7_DemoHtmlHelper.Models.Contact
+@{
+    ViewBag.Title = "AfficherContact";
+}
+
+<h2>AfficherContact</h2>
+
+@using (Html.BeginForm("AjouterContact", "Home", FormMethod.Post))
+{
+    @Html.Label("Id:")
+    @Html.TextBoxFor(c => c.Id)
+    <br />
+
+    @Html.Label("Nom:")
+    @Html.TextBoxFor(c => c.Nom)
+    <br />
+
+    @Html.Label("Photo:")
+
+    <input type="file" name="photo" />
+    <br />
+    <input type="submit" value="Envoyer" />
+    <br />
+}
+
